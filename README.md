@@ -4,6 +4,7 @@
 
 - node 12
 - yarn
+- running BE on `http://localhost:3000`
 
 ### Development
 

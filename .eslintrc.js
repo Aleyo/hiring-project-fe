@@ -1,0 +1,101 @@
+module.exports = {
+  'env': {
+    'browser': true,
+    'es6': true,
+  },
+  'extends': [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+  ],
+  'globals': {
+    'atomics': 'readonly',
+    'sharedarraybuffer': 'readonly',
+  },
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true,
+    },
+    'ecmaVersion': 2018,
+    'sourceType': 'module',
+  },
+  'plugins': [
+    'react',
+    '@typescript-eslint',
+  ],
+  'rules': {
+    'indent': ['error', 2, { 'SwitchCase': 1 }],
+    'linebreak-style': ['error', 'unix'],
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'always'],
+    'no-console': ['error', {
+      allow: ['warn', 'error'],
+    }],
+    'curly': 'error',
+    'eol-last': ['error', 'always'],
+    'padded-blocks': ['error', 'never'],
+    'no-eval': 'error',
+    'no-empty-function': 'error',
+    'no-trailing-spaces': 'error',
+    'no-useless-constructor': 'error',
+    'no-useless-return': 'error',
+    'brace-style': ['error', '1tbs', { 'allowSingleLine': true }],
+    'space-in-parens': ['error', 'never'],
+    'no-multiple-empty-lines': ['error', {
+      'max': 1,
+      'maxEOF': 0,
+    }],
+    'no-else-return': 'error',
+    'newline-before-return': 'error',
+    'object-curly-newline': ['warn', {
+      'ObjectExpression': {
+        'minProperties': 3,
+        'consistent': true,
+      },
+      'ObjectPattern': {
+        'minProperties': 3,
+        'consistent': true,
+      },
+      'ImportDeclaration': {
+        'minProperties': 5,
+        'consistent': true,
+      },
+      'ExportDeclaration': {
+        'minProperties': 2,
+        'consistent': true,
+      },
+    }],
+    'keyword-spacing': 'error',
+    'object-curly-spacing': ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'arrow-parens': ['error', 'as-needed'],
+    'arrow-spacing': 'error',
+    'react/display-name': 'off',
+    'react/jsx-curly-spacing': [2, 'never'],
+    'react/jsx-curly-newline': [2, 'consistent'],
+    'react/jsx-closing-tag-location': 'error',
+    'react/jsx-closing-bracket-location': 'error',
+    'react/jsx-first-prop-new-line': ['error', 'multiline'],
+    'react/jsx-fragments': ['error', 'syntax'],
+    'react/jsx-max-props-per-line': ['error', { 'maximum': 4 }],
+    'react/jsx-props-no-multi-spaces': 'error',
+    'react/jsx-tag-spacing': ['error', { 'beforeSelfClosing': 'always' }],
+    'react/jsx-wrap-multilines': ['error', {
+      'declaration': 'parens',
+      'assignment': 'parens',
+      'return': 'parens',
+      'arrow': 'parens',
+      'condition': 'ignore',
+      'logical': 'ignore',
+      'prop': 'ignore',
+    }],
+  },
+  overrides: [{
+    files: ['*.ts', '*.tsx'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
+    },
+  }],
+};

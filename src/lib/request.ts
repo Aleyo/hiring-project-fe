@@ -1,4 +1,4 @@
-import { objectToUrl, getToken } from 'src/lib/helpers';
+import { objectToUrl, getAuthData } from 'src/lib/helpers';
 
 export const request =  async <T, B = undefined> (
   url: string,
@@ -6,7 +6,7 @@ export const request =  async <T, B = undefined> (
   body: B | undefined = undefined,
   headers = {},
 ): Promise<T> => {
-  const token = getToken();
+  const token = getAuthData().token;
   const tarUrl = method === 'get' && typeof body === 'object'
     ? url + objectToUrl(body as {})
     : url;
@@ -28,7 +28,9 @@ export const request =  async <T, B = undefined> (
       });
     };
 
-    if (response.status === 401) {
+    if (response.status === 400) {
+      return reject(['Bad request']);
+    } else if (response.status === 401) {
       return reject(['Unauthorized']);
     } if (response.status === 403) {
       return reject(['Forbidden']);

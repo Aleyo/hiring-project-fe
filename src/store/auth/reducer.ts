@@ -2,7 +2,6 @@ import { Action } from 'src/store/action';
 import { AuthTypes } from './types';
 
 const initialState: AuthTypes.AuthState = {
-  token: undefined,
 };
 
 export function authReducer(
@@ -13,11 +12,20 @@ export function authReducer(
     case AuthTypes.REMOVE_AUTH:
       return { };
     case AuthTypes.SET_AUTH: {
-      const token = (action as AuthTypes.SetAuthAction).token;
+      const auth = (action as AuthTypes.SetAuthAction);
 
       return {
         ...state,
-        token,
+        token: auth.token,
+        userId: auth.userId,
+      };
+    }
+    case AuthTypes.SET_USER: {
+      const user = (action as AuthTypes.SetUserAction).user;
+
+      return {
+        ...state,
+        user,
       };
     }
     default:

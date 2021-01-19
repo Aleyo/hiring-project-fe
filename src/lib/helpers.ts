@@ -1,13 +1,21 @@
-export const getToken = (): string => {
-  return localStorage.getItem('token');
+const TOKEN_NAME = 'HP-token';
+const USER_ID_NAME = 'HP-user';
+
+export const getAuthData = (): { token: string, userId: string } => {
+  return {
+    token: localStorage.getItem(TOKEN_NAME),
+    userId: localStorage.getItem(USER_ID_NAME),
+  };
 };
 
-export const setToken = (token: string) => {
-  localStorage.setItem('token', token);
+export const setAuthData = (token: string, userId: string) => {
+  localStorage.setItem(TOKEN_NAME, token);
+  localStorage.setItem(USER_ID_NAME, userId);
 };
 
 export const logout = () => {
-  localStorage.removeItem('token');
+  localStorage.removeItem(TOKEN_NAME);
+  localStorage.removeItem(USER_ID_NAME);
 };
 
 export interface ObjectToUrlProps {

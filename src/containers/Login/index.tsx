@@ -8,7 +8,7 @@ import './Login.scss';
 export const Login = () => {
   return (
     <>
-      <Typography variant="h2">Login</Typography>
+      <Typography variant="h2">{i.t('login.heading')}</Typography>
       <form noValidate autoComplete="off">
         <Grid
           className="grid-auth"
@@ -18,7 +18,7 @@ export const Login = () => {
         >
           <Grid item>
             <TextField
-              label="Username or email addres"
+              label={i.t('login.username')}
               variant="outlined"
               InputLabelProps={{ shrink: true }}
               fullWidth
@@ -26,7 +26,7 @@ export const Login = () => {
           </Grid>
           <Grid item>
             <TextField
-              label="Password"
+              label={i.t('login.password')}
               variant="outlined"
               InputLabelProps={{ shrink: true }}
               fullWidth

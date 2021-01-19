@@ -5,6 +5,7 @@ const en = {
   errors: {
     noLogin: 'You need to login to view this page',
     unknown: 'Unknown error',
+    sessionExpired: 'Session expired',
   },
   notFound: {
     error: '404 Error',
@@ -17,6 +18,9 @@ const en = {
     signIn: 'Sign in',
     dontHaveAccount: 'Dont\'t have an account? ',
     createAccount: 'Create an account',
+    success: 'You were successfully signed in',
+    badFormat: 'You need fill whole form',
+    invalidCredentials: 'Credentials are not valid',
   },
   signUp: {
     heading: 'Create your account',

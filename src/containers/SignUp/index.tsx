@@ -2,20 +2,26 @@ import * as React from 'react';
 import { useState, useCallback } from 'react';
 import { Button, TextField, Grid, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import i from 'i18next';
+
+import { useSelector } from 'src/store';
 
 import { AuthActions } from 'src/store/auth/actions';
 
 export const SignUp = () => {
   const history = useHistory();
+  const token = useSelector(s => s.auth.token);
 
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = useCallback(async e => {
+    e.preventDefault();
+
     try {
       await AuthActions.signUp({
         firstName,
@@ -39,6 +45,10 @@ export const SignUp = () => {
     email,
     password,
   ]);
+
+  if (token) {
+    return <Redirect to="/users" />;
+  }
 
   return (
     <>
@@ -94,6 +104,7 @@ export const SignUp = () => {
           <Grid item>
             <Button
               onClick={handleSubmit}
+              type="submit"
               color="primary"
               variant="contained"
               fullWidth

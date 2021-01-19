@@ -6,9 +6,11 @@ import {
 } from 'react-redux';
 
 import { authReducer } from 'src/store/auth/reducer';
+import { userReducer } from 'src/store/user/reducer';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
+  users: userReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

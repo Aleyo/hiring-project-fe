@@ -19,7 +19,6 @@ interface Props {
   exact?: boolean;
   loginRequired?: boolean;
   layout?: Layout;
-  redirectTo?: string;
 }
 
 export const Route = ({
@@ -27,8 +26,7 @@ export const Route = ({
   path,
   exact = false,
   layout = Layout.Auth,
-  redirectTo,
-  loginRequired = true,
+  loginRequired = false,
 }: Props) => {
   const token = useSelector(s => s.auth.token);
 
@@ -36,10 +34,6 @@ export const Route = ({
     toast.error(i.t('errors.noLogin'));
 
     return <Redirect to={'/login'} />;
-  }
-
-  if (redirectTo) {
-    return <Redirect to={redirectTo} />;
   }
 
   const getLayout = (): JSX.Element => {

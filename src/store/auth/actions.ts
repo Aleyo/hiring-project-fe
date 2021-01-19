@@ -3,6 +3,8 @@ import { setAuthData } from 'src/lib/helpers';
 import { AuthApi } from './api';
 import { AuthTypes } from './types';
 
+import { User } from 'src/models/User';
+
 export namespace AuthActions {
   export const login = (body: AuthApi.LoginBody): Promise<AuthApi.LoginResponse> => {
     return AuthApi.login(body)
@@ -23,6 +25,13 @@ export namespace AuthActions {
       type: AuthTypes.SET_AUTH,
       token,
       userId,
+    };
+  };
+
+  export const setUser = (user: User): AuthTypes.SetUserAction => {
+    return {
+      type: AuthTypes.SET_USER,
+      user,
     };
   };
 }

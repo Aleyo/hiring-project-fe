@@ -4,7 +4,7 @@
 
 - node 12
 - yarn
-- running BE on `http://localhost:3000`
+- running BE from https://github.com/Aleyo/hiring-project-be 
 
 ### Development
 

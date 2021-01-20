@@ -25,7 +25,7 @@ export const Route = ({
   component: C,
   path,
   exact = false,
-  layout = Layout.Auth,
+  layout = Layout.SignedIn,
   loginRequired = false,
 }: Props) => {
   const token = useSelector(s => s.auth.token);

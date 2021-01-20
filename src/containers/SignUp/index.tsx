@@ -67,6 +67,7 @@ export const SignUp = () => {
               label={i.t('signUp.firstName')}
               variant="outlined"
               InputLabelProps={{ shrink: true }}
+              required
               fullWidth
             />
           </Grid>
@@ -77,6 +78,7 @@ export const SignUp = () => {
               label={i.t('signUp.lastName')}
               variant="outlined"
               InputLabelProps={{ shrink: true }}
+              required
               fullWidth
             />
           </Grid>
@@ -87,6 +89,7 @@ export const SignUp = () => {
               label={i.t('login.username')}
               variant="outlined"
               InputLabelProps={{ shrink: true }}
+              required
               fullWidth
             />
           </Grid>
@@ -98,6 +101,7 @@ export const SignUp = () => {
               variant="outlined"
               type="password"
               InputLabelProps={{ shrink: true }}
+              required
               fullWidth
             />
           </Grid>
@@ -107,6 +111,12 @@ export const SignUp = () => {
               type="submit"
               color="primary"
               variant="contained"
+              disabled={
+                !firstName ||
+                !lastName ||
+                !email ||
+                !password
+              }
               fullWidth
             >
               {i.t('login.signIn')}

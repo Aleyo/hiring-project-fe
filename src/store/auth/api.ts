@@ -17,9 +17,7 @@ export namespace AuthApi {
     return request<LoginResponse, LoginBody>(
       `${config.api}/login`,
       'post',
-      {
-        ...body,
-      },
+      { ...body },
     );
   };
 

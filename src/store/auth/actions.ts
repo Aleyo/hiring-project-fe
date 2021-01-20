@@ -16,6 +16,10 @@ export namespace AuthActions {
       });
   };
 
+  export const logout = (): void => {
+    store.dispatch(removeAuth());
+  };
+
   export const signUp = (body: AuthApi.SignUpBody): Promise<void> => {
     return AuthApi.signUp(body);
   };
@@ -25,6 +29,12 @@ export namespace AuthActions {
       type: AuthTypes.SET_AUTH,
       token,
       userId,
+    };
+  };
+
+  export const removeAuth = (): AuthTypes.RemoveAuthAction => {
+    return {
+      type: AuthTypes.REMOVE_AUTH,
     };
   };
 

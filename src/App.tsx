@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { useEffect, useCallback, useState } from 'react';
 import { Switch } from 'react-router-dom';
+import { LinearProgress } from '@material-ui/core';
 import { toast } from 'react-toastify';
 import i from 'i18next';
 
 import { useSelector } from 'src/store';
 import { getAuthData, logout } from 'src/lib/helpers';
 
-import { Route } from 'src/components/Route';
+import { Route, Layout } from 'src/components/Route';
 import { NotFound } from 'src/components/NotFound';
 import { Login } from 'src/containers/Login';
+import { Logout } from 'src/containers/Logout';
 import { SignUp } from 'src/containers/SignUp';
 import { Users } from 'src/containers/Users';
 
@@ -45,18 +47,18 @@ export const App = () => {
   }, [checkUser]);
 
   if (loading) {
-    // TODO: change for SpinnerFullscreen
-    return (<h2>Loading...</h2>);
+    return <LinearProgress />;
   }
 
   if (getAuthData().token && !auth.userId && !invalidToken) {
-    return (<h2>Loading...</h2>);
+    return <LinearProgress />;
   }
 
   return (
     <Switch>
-      <Route exact path={['/login', '/']} component={Login} />
-      <Route exact path="/signUp" component={SignUp} />
+      <Route exact path={['/login', '/']} component={Login} layout={Layout.Auth} />
+      <Route exact path={'/logout'} component={Logout} layout={Layout.Auth} />
+      <Route exact path="/signUp" component={SignUp} layout={Layout.Auth} />
       <Route exact path="/users" component={Users} loginRequired />
       <Route component={NotFound} loginRequired={false} />
     </Switch>

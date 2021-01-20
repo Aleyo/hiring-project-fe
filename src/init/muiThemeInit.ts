@@ -24,5 +24,9 @@ export const theme = createMuiTheme({
       marginTop: 30,
       fontWeight: 500,
     },
+    h6: {
+      fontWeight: 400,
+      fontSize: '1rem',
+    },
   },
 });

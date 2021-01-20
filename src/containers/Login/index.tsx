@@ -86,6 +86,7 @@ export const Login = () => {
               type="submit"
               color="primary"
               variant="contained"
+              disabled={!email || !password}
               fullWidth
             >
               {i.t('login.signIn')}

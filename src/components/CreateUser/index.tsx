@@ -4,8 +4,6 @@ import { Button, TextField, Grid } from '@material-ui/core';
 import { toast } from 'react-toastify';
 import i from 'i18next';
 
-import './CreateUser.scss';
-
 import { UsersActions } from 'src/store/user/actions';
 
 export const CreateUser = () => {

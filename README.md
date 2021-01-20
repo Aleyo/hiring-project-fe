@@ -15,4 +15,10 @@ yarn install
 yarn start:dev
 ```
 
+### Testing 
+
+```
+yarn test
+```
+
 Then you can access it on `http://localhost:8080` in your browser.

@@ -8,7 +8,7 @@ import { UsersTable } from 'src/components/UsersTable';
 export const Users = () => {
   return (
     <>
-      <Typography variant="h2">{i.t('users.heading')}</Typography>
+      <Typography data-testid="header" variant="h2">{i.t('users.heading')}</Typography>
       <CreateUser />
       <UsersTable />
     </>

@@ -60,7 +60,7 @@ export const App = () => {
       <Route exact path={'/logout'} component={Logout} layout={Layout.Auth} />
       <Route exact path="/signUp" component={SignUp} layout={Layout.Auth} />
       <Route exact path="/users" component={Users} loginRequired />
-      <Route component={NotFound} loginRequired={false} />
+      <Route component={NotFound} loginRequired={false} layout={Layout.Auth} />
     </Switch>
   );
 };

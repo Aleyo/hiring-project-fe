@@ -32,8 +32,7 @@ export const Login = () => {
     } catch (e) {
       if (e.status === 400) {
         toast.error(i.t('login.badFormat'));
-        // TODO: api returning 500 on invalid email, fix api later
-      } else if (e.status === 401 || e.status === 500) {
+      } else if (e.status === 401 || e.status === 404) {
         toast.error(i.t('login.invalidCredentials'));
       } else {
         toast.error(i.t('errors.unknown'));

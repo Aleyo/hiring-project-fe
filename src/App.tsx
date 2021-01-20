@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useCallback, useState } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import { LinearProgress } from '@material-ui/core';
 import { toast } from 'react-toastify';
 import i from 'i18next';
@@ -55,12 +55,14 @@ export const App = () => {
   }
 
   return (
-    <Switch>
-      <Route exact path={['/login', '/']} component={Login} layout={Layout.Auth} />
-      <Route exact path={'/logout'} component={Logout} layout={Layout.Auth} />
-      <Route exact path="/signUp" component={SignUp} layout={Layout.Auth} />
-      <Route exact path="/users" component={Users} loginRequired />
-      <Route component={NotFound} loginRequired={false} layout={Layout.Auth} />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={['/login', '/']} component={Login} layout={Layout.Auth} />
+        <Route exact path={'/logout'} component={Logout} layout={Layout.Auth} />
+        <Route exact path="/signUp" component={SignUp} layout={Layout.Auth} />
+        <Route exact path="/users" component={Users} loginRequired />
+        <Route component={NotFound} loginRequired={false} layout={Layout.Auth} />
+      </Switch>
+    </BrowserRouter>
   );
 };

@@ -14,7 +14,7 @@ import { AuthActions } from 'src/store/auth/actions';
 
 export const Login = () => {
   const history = useHistory();
-  const token = useSelector(s => s.auth.token);
+  const token = useSelector(s => s.auth?.token);
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -64,6 +64,7 @@ export const Login = () => {
               onChange={e => setEmail(e.target.value)}
               label={i.t('login.username')}
               variant="outlined"
+              inputProps={{ 'data-testid': 'email' }}
               InputLabelProps={{ shrink: true }}
               fullWidth
             />
@@ -75,6 +76,7 @@ export const Login = () => {
               label={i.t('login.password')}
               type="password"
               variant="outlined"
+              inputProps={{ 'data-testid': 'password' }}
               InputLabelProps={{ shrink: true }}
               fullWidth
             />
@@ -85,6 +87,7 @@ export const Login = () => {
               type="submit"
               color="primary"
               variant="contained"
+              data-testid="submit"
               disabled={!email || !password}
               fullWidth
             >

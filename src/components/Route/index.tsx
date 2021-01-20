@@ -28,7 +28,7 @@ export const Route = ({
   layout = Layout.SignedIn,
   loginRequired = false,
 }: Props) => {
-  const token = useSelector(s => s.auth.token);
+  const token = useSelector(s => s.auth?.token);
 
   if (loginRequired && !token) {
     toast.error(i.t('errors.noLogin'));

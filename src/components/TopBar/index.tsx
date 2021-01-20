@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const TopBar = ({ isSignedIn = false }: Props) => {
-  const user = useSelector(s => s.auth.user);
+  const user = useSelector(s => s.auth?.user);
   const history = useHistory();
 
   return (
